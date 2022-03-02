@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- for our css stylesheet should we want to do something outside of bulma -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>ShowPro</title>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <!-- about the site -->
+            <div>
+                <h1 class="title">
+                    ShowPro
+                </h1>
+                <p class="subtitle">
+                    Ready to get back out there and jam with your favorite artists? Boy are you in the right spot then! Simply fill out the form with the artist you're looking for and the city you are looking at catching that awesome gig and then sit back and jam to their music while we do the rest! Find that venue, enjoy what makes your artist the greatest! The wait will be the only hard part!
+                </p>
+            </div>
+
+            <!-- search form -->
+            <div class="container" id="form">
+                <form>
+                    <label for="artist">Artist:</label>
+                    <input type="text" placeholder="Artist name" name="artist" id="artist" class="input">
+                    <label for="city">City:</label>
+                    <input type="text" placeholder="City" name="city" id="city" class="input">
+                    <button type="submit" class="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <main class="container" id="main-page">
+        <!-- div for search results (shows/locations) -->
+        <div class="container" id="results">
+
+        </div>
+
+        <!-- div for latest single -->
+        <div class="container" id="single">
+
+        </div>
+
+        <!-- div for search history -->
+        <div class="container" id="history">
+
+        </div>
+    </main>
+
+    <!-- footer should we want to include one -->
+    <footer class="footer">
+        <div class="content">
+
+        </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="./assets/js/script.js"></script>
+</body>
