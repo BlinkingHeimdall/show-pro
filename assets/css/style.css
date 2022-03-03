@@ -20,6 +20,8 @@ body {
 .button {
     color: var(--black);
     background-color: var(--secondary);
+    margin-top: 3px;
+    border-color: var(--border-secondary);
 }
 
 .input {
