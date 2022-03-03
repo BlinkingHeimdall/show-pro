@@ -11,33 +11,31 @@
     <title>ShowPro</title>
 </head>
 
-<body>
-    <section class="hero">
-        <div class="hero-body">
-            <!-- about the site -->
-            <div>
-                <h1 class="title">
-                    ShowPro
-                </h1>
-                <p class="subtitle">
+<body class="has-background-success">
+    <section class="hero .is-$danger">
+        <div class="columns is-centered">
+            <div class="hero-body column is-half">
+                <!-- about the site -->
+                    <h1 class="title column">ShowPro</h1>
+                    <p class="subtitle column">
                     Ready to get back out there and jam with your favorite artists? Boy are you in the right spot then! Simply fill out the form with the artist you're looking for and the city you are looking at catching that awesome gig and then sit back and jam to their music while we do the rest! Find that venue, enjoy what makes your artist the greatest! The wait will be the only hard part!
-                </p>
+                    </p>
             </div>
 
             <!-- search form -->
-            <div class="container" id="form">
+            <div class="column is-one-quarter" id="form" style="margin-top: 35px;">
                 <form>
-                    <label for="artist">Artist:</label>
-                    <input type="text" placeholder="Artist name" name="artist" id="artist" class="input">
-                    <label for="city">City:</label>
-                    <input type="text" placeholder="City" name="city" id="city" class="input">
-                    <button type="submit" class="button">Search</button>
+                    <label for="artist" class="column">Artist:</label>
+                    <input type="text" placeholder="Artist name" name="artist" id="artist" class="input column is-warning">
+                    <label for="city" class="column">City:</label>
+                    <input type="text" placeholder="City" name="city" id="city" class="input column is-warning">
+                    <button type="submit" class="button is-warning" style="margin-top: 3px;">Search</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <main class="container" id="main-page">
+    <main class="container has-background-info" id="main-page">
         <!-- div for search results (shows/locations) -->
         <div class="container" id="results">
 
