@@ -19,6 +19,8 @@ A website that allows the user to search an artist which will present them with 
 https://BlinkingHeimdall.github.io/show-pro/
 
 ## Contribution
+![badge](https://img.shields.io/github/contributors/BlinkingHeimdall/show-pro)
+
 * Ben Milner: https://github.com/Bmilner88
 * Holdan McMullen: https://github.com/Draxion2
 * Jason Adams: https://github.com/BlinkingHeimdall
