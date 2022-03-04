@@ -21,6 +21,8 @@ https://BlinkingHeimdall.github.io/show-pro/
 ## Contribution
 ![badge](https://img.shields.io/github/contributors/BlinkingHeimdall/show-pro)
 
+![badge](https://img.shields.io/github/last-commit/BlinkingHeimdall/show-pro)
+
 * Ben Milner: https://github.com/Bmilner88
 * Holdan McMullen: https://github.com/Draxion2
 * Jason Adams: https://github.com/BlinkingHeimdall
