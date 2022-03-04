@@ -1,7 +1,3 @@
-// add error handling if search input is not an artist!
-
-
-
 // empty array for search history
 let srchHstry = [];
 
@@ -19,7 +15,6 @@ $('#searchBtn').on('click', function(event){
         console.log('error')
     }
     else {
-        console.log(input.artist)
         // save items to localstorage
         saveHistory(input);
 
@@ -58,6 +53,7 @@ $('#searchBtn').on('click', function(event){
 });
 
 function displayDescription(data) {
+    // sets the html for the description to have an image and the bio from theaudiodb
     $('#description').html(
         `<img src='${data.artists[0].strArtistThumb}' alt='${data.artists[0].strArtist}' width="200" height="200">
         <h2 class="subtitle is-2">${data.artists[0].strArtist}</h2>
@@ -66,13 +62,16 @@ function displayDescription(data) {
 };
 
 function displayConcerts(data) {
+    // resets the concert list
+    $('#results').text('');
+
+    // adds a concert button for each concert in the list
     for(i = 0; i < data.events.length; i++) {
-        let htmlText = `<a class="card" href="${data.events[i].url}">${data.events[i].datetime_utc.slice(0, 10)}, ${data.events[i].venue.display_location}</a>`
+        let htmlText = `<a class="card" href="${data.events[i].url}">
+        ${data.events[i].datetime_utc.slice(0, 10)}, 
+        ${data.events[i].venue.display_location}</a>`
         $('#results').append(htmlText)
-    }
-    /* $('#results').html(
-        ``
-    ) */
+    };
 };
 
 function displayHistory() {
