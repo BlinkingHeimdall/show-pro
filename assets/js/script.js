@@ -1,3 +1,7 @@
+// add error handling if search input is not an artist!
+
+
+
 // empty array for search history
 let srchHstry = [];
 
@@ -8,11 +12,10 @@ $('#searchBtn').on('click', function(event){
     // get input
     let input = {
         artist: $('#artist').val().trim().toLowerCase(),
-        city: $('#city').val().trim().toLowerCase()
     };
 
     // check to make sure the values are there
-    if(!input.artist || !input.city) {
+    if(!input.artist) {
         console.log('error')
     }
     else {
@@ -24,37 +27,62 @@ $('#searchBtn').on('click', function(event){
             .then(function(response) {
                 if(response.ok) {
                     response.json().then(function(data) {
-                        console.log(data);
+                        displayDescription(data);
                     });
                 };
             })
             .catch(function(error) {
                 // PUT ERROR MODAL HERE
+                console.log('not and artist')
             }
         );
 
         let client_id = 'MjU5NDM1OTZ8MTY0NjM1NzQyOC4yMDc5NzQ';
         let client_secret = '826dd467ea242fba5e339e7c657253c307f579e53f23611ce7311531fbd81b77';
-        
-        fetch(`https://api.seatgeek.com/2/events/?client_id=${client_id}&client_secret=${client_secret}&performers.slug=${input.artist.replace(/ /g, '-')}`)
+
+        fetch(`https://api.seatgeek.com/2/events/?client_id=${client_id}&client_secret=${client_secret}&performers.slug=${input.artist.replace(/ /g, '-')}&per_page=5`)
             .then(function(response) {
                 if(response.ok) {
                     response.json().then(function(data) {
                         console.log(data);
+                        displayConcerts(data);
                     });
                 };
             })
             .catch(function(error) {
                 // PUT ERROR MODAL HERE
+                console.log('not an artist')
             }
         );
     };
 });
 
+function displayDescription(data) {
+    $('#description').html(
+        `<img src='${data.artists[0].strArtistThumb}' alt='${data.artists[0].strArtist}' width="200" height="200">
+        <h2 class="subtitle is-2">${data.artists[0].strArtist}</h2>
+        <p>${data.artists[0].strBiographyEN}</p>`
+    );
+};
+
+function displayConcerts(data) {
+    for(i = 0; i < data.events.length; i++) {
+        let htmlText = `<a class="card" href="${data.events[i].url}">${data.events[i].datetime_utc.slice(0, 10)}, ${data.events[i].venue.display_location}</a>`
+        $('#results').append(htmlText)
+    }
+    /* $('#results').html(
+        ``
+    ) */
+};
+
+function displayHistory() {
+    // make a list of the search history from localstorage
+};
+
 function saveHistory(input) {
     // remove duplicates from the search history
     srchHstry = srchHstry.filter(function(i) {
-        return i.artist != input.artist || i.city != input.city;
+        return i.artist != input.artist;
     });
 
     // add new search item to the top of the list
