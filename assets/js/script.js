@@ -63,14 +63,14 @@ function displayDescription(data) {
 
 function displayConcerts(data) {
     // resets the concert list
-    $('#results').text('');
+    $('#concerts').text('');
 
     // adds a concert button for each concert in the list
     for(i = 0; i < data.events.length; i++) {
-        let htmlText = `<a class="card" href="${data.events[i].url}">
+        let htmlText = `<li class="card"><a href="${data.events[i].url}>">
         ${data.events[i].datetime_utc.slice(0, 10)}, 
-        ${data.events[i].venue.display_location}</a>`
-        $('#results').append(htmlText)
+        ${data.events[i].venue.display_location}</a></li>`
+        $('#concerts').append(htmlText);
     };
 };
 
