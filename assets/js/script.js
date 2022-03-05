@@ -1,6 +1,29 @@
 // empty array for search history
 let srchHstry = [];
 
+// run when there's an error in the input
+var runErr = function() {
+    
+    // check if error is already active
+    if ($("form p").hasClass("error-handle")) {
+        return;
+    } else {
+        $("#searchBtn").after(
+            "<p>ERROR: Artist not found!</p>"
+        );
+        $("form p").addClass("error-handle");
+        $(".error-handle").css({
+            textAlign: "center",
+            color: "white",
+            marginTop: "10px",
+            background: "rgba(0, 0, 0, 0.3)"
+        });
+        setTimeout(function() {
+            $(".error-handle").remove();
+        }, 2000);
+    }
+}
+
 // event listener for the search button
 $('#searchBtn').on('click', function(event){
     event.preventDefault();
@@ -12,7 +35,7 @@ $('#searchBtn').on('click', function(event){
 
     // check to make sure the values are there
     if(!input.artist) {
-        console.log('error')
+        runErr();
     }
     else {
         // save items to localstorage
@@ -27,8 +50,8 @@ $('#searchBtn').on('click', function(event){
                 };
             })
             .catch(function(error) {
-                // PUT ERROR MODAL HERE
-                console.log('not and artist')
+                runErr();
+                console.log('not and artist' + error)
             }
         );
 
@@ -45,8 +68,8 @@ $('#searchBtn').on('click', function(event){
                 };
             })
             .catch(function(error) {
-                // PUT ERROR MODAL HERE
-                console.log('not an artist')
+                runErr();
+                console.log('not an artist' + error);
             }
         );
     };
