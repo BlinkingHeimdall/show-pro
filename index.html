@@ -12,42 +12,43 @@
 </head>
 
 <body>
-    <section class="hero .is-$danger">
+    <header></header>
+    <section class="hero">
         <div class="columns is-centered">
             <div class="hero-body column is-half">
                 <!-- about the site -->
-                    <h1 class="title column">ShowPro</h1>
-                    <p class="subtitle column">
-                    Ready to get back out there and jam with your favorite artists? Boy are you in the right spot then! Simply fill out the form with the artist you're looking for and the city you are looking at catching that awesome gig and then sit back and jam to their music while we do the rest! Find that venue, enjoy what makes your artist the greatest! The wait will be the only hard part!
-                    </p>
+                    <h1 class="column">ShowPro</h1>
+                    <p class="column">
+                    <b>Ready to get back out there and jam with your favorite artists? Boy are you in the right spot then! Simply fill out the form with the artist you're looking for and the city you are looking at catching that awesome gig and then sit back and jam to their music while we do the rest! Find that venue, enjoy what makes your artist the greatest! The wait will be the only hard part!
+                    </b></p>
             </div>
 
             <!-- search form -->
-            <div class="column is-one-quarter form" id="form">
+            <div class="column is-one-quarter" id="form">
                 <form>
                     <label for="artist" class="column">Artist:</label>
-                    <input type="text" placeholder="Artist name" name="artist" id="artist" class="input">
-                    <label for="city" class="column">City:</label>
-                    <input type="text" placeholder="City" name="city" id="city" class="input">
-                    <button type="submit" class="button">Search</button>
+                    <input type="text" placeholder="Artist name" name="artist" id="artist" class="input column">
+                    <button type="submit" id="searchBtn" class="button" style="margin-top: 3px;">Search</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <main class="container has-background-info" id="main-page">
+    <main class="container columns" id="main-page">
         <!-- div for search results (shows/locations) -->
-        <div class="container" id="results">
-
+        <div class="shows column is-one-quarter is-centered" id="results">
+            <ul id="concerts">
+                
+            </ul>
         </div>
 
-        <!-- div for latest single -->
-        <div class="container" id="single">
-
+        <!-- div for the description -->
+        <div class="column is-two-quarters is-centered" id="description">
+            
         </div>
 
         <!-- div for search history -->
-        <div class="container" id="history">
+        <div class="container column is is-one-quarter is-centered" id="history">
 
         </div>
     </main>
@@ -60,5 +61,7 @@
     </footer>
 
     <!-- scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
 </body>

@@ -1,33 +1,88 @@
-:root {
-    --primary: #1DB954;
+:root { --primary: #1DB954;
     --secondary: #a6eca8;
     --tertiary: #d2fdbb;
-    --black: #000; 
-    --white: #fff; 
-    --border-primary: #c0c0c0; 
+    --black: #000;
+    --white: #fff;
+    --border-primary: #c0c0c0;
     --border-secondary: #98985b;
 }
 
-.form {
-    margin-top: 35px;
+
+* {
+    color: var(--black);
 }
 
 body {
     background-color: var(--primary);
-    color: var(--black);
+}
+
+h1 {
+    color: var(--white);
+    font-style:initial;
+    font-size: 40px;
+}
+
+.hero {
+    background-image: url("../images/sound-wave-technology-cheering-c.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.hero-body {
+    margin-top: 50px;
+    height: auto;
+}
+
+.hero-body p b {
+    color: var(--white);
+    text-decoration: ;
+}
+
+
+
+label {
+    margin-top: 110px;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 3px;
+}
+input[type=text] {
+    border: 2px solid var(--border-primary);
+    background-color: var(--tertiary);
 }
 
 .button {
-    color: var(--black);
-    background-color: var(--secondary);
+    border: 2px solid var(--border-primary);
+    background-color: var(--tertiary);
+}
+
+main .card {
     margin-top: 3px;
-    border-color: var(--border-secondary);
+    margin-left: 80px;
+    
 }
 
-.input {
-    color: var(--primary);
-}
-
-main {
+.submit {
     background-color: var(--secondary);
+    color: var(--black);
+}
+
+.shows {
+    margin-left: 120px;
+    margin: auto;
+}
+
+main .is-two-quarters img {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+main .is-two-quarters .subtitle {
+    text-align: center;
 }
