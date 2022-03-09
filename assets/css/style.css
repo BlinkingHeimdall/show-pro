@@ -10,6 +10,8 @@
 
 * {
     color: var(--black);
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -26,10 +28,11 @@ h1 {
     background-image: url("../images/sound-wave-technology-cheering-c.jpg");
     background-size: cover;
     background-position: center;
+    border-bottom: 5px solid var(--border-secondary);
     height: 500px;
     display: flex;
     flex-wrap: wrap;
-    
+    margin-bottom: 10px;
 }
 
 .hero-body {
@@ -39,10 +42,7 @@ h1 {
 
 .hero-body p b {
     color: var(--white);
-    text-decoration: ;
 }
-
-
 
 label {
     margin-top: 110px;
@@ -50,6 +50,7 @@ label {
     color: var(--white);
     margin-bottom: 3px;
 }
+
 input[type=text] {
     border: 2px solid var(--border-primary);
     background-color: var(--tertiary);
@@ -58,6 +59,45 @@ input[type=text] {
 .button {
     border: 2px solid var(--border-primary);
     background-color: var(--tertiary);
+}
+
+.search-title {
+    color: var(--white);
+    font-weight: bold;
+}
+
+#history {
+    width: 80%;
+}
+
+#prevSearches {
+    height: 200px;
+    overflow: auto;
+}
+
+#prevSearches::-webkit-scrollbar {
+  background-color: #000 !important;
+  height: 5px!important;
+  width: 5px!important;
+}
+#prevSearches::-webkit-scrollbar-thumb {
+  background-color: var(--border-secondary) !important;
+}
+
+.searchedItem {
+    text-align: center;
+    background-color: var(--secondary);
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    transition: all 300ms;
+    border: 2px solid var(--border-primary);
+}
+
+.searchedItem:hover {
+    cursor: pointer;
+    background: var(--black);
+    color: var(--white);
+    transition: all 300ms;
 }
 
 main .card {
@@ -73,7 +113,7 @@ main .card {
 
 .shows {
     margin-left: 120px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 main .is-two-quarters img {
