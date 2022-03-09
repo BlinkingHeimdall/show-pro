@@ -26,7 +26,6 @@ function runFetch(input) {
             .then(function(response) {
                 if(response.ok) {
                     response.json().then(function(data) {
-                        console.log(data);
                         displayConcerts(data);
                     });
                 };
@@ -89,12 +88,19 @@ function displayConcerts(data) {
     // resets the concert list
     $('#concerts').text('');
 
-    // adds a concert button for each concert in the list
-    for(i = 0; i < data.events.length; i++) {
-        let htmlText = `<li class="card"><a target="_blank" href="${data.events[i].url}>">
-        ${data.events[i].datetime_utc.slice(0, 10)},
-        ${data.events[i].venue.display_location}</a></li>`
-        $('#concerts').append(htmlText);
+    // checks for whether there are any concerts to show
+    if(data.events.length) {
+        // adds a concert button for each concert in the list
+        for(i = 0; i < data.events.length; i++) {
+            let htmlText = `<li class="card"><a target="_blank" href="${data.events[i].url}>">
+            ${data.events[i].datetime_utc.slice(0, 10)},
+            ${data.events[i].venue.display_location}</a></li>`
+            $('#concerts').append(htmlText);
+        };
+    }
+    else {
+        // styling probably needs to be done for this --
+        $('#concerts').html(`<li>No Concerts</li>`);
     };
 };
 
@@ -142,7 +148,6 @@ function loadHistory() {
         for(i = 0; i < tempHstry.length; i++) {
             srchHstry.push(tempHstry[i]);
         };
-
         displayHistory();
         updateHistory();
     };
@@ -154,9 +159,6 @@ function updateHistory() {
     $(document).ready(function() {
         $("p.searchedItem").click(function(event) {
             event.preventDefault();
-
-            console.log('clicked')
-
             var data = $(this).attr("data-artist");
             runFetch(data);
         });
