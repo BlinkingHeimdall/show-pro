@@ -71,9 +71,9 @@ $('#searchBtn').on('click', function(event){
     // check to make sure the values are there
     if(!input) {
         runErr();
+    } else {
+        runFetch(input);
     }
-
-    runFetch(input);
 });
 
 function displayDescription(data) {
@@ -91,17 +91,20 @@ function displayConcerts(data) {
 
     // adds a concert button for each concert in the list
     for(i = 0; i < data.events.length; i++) {
-        let htmlText = `<li class="card"><a href="${data.events[i].url}>">
-        ${data.events[i].datetime_utc.slice(0, 10)}, 
+        let htmlText = `<li class="card"><a target="_blank" href="${data.events[i].url}>">
+        ${data.events[i].datetime_utc.slice(0, 10)},
         ${data.events[i].venue.display_location}</a></li>`
         $('#concerts').append(htmlText);
     };
 };
 
 function displayHistory() {
-    // make a list of the search history from localstorage
-    // append '<p data-artist="dragonforce" class="column searchedItem">Dragonforce</p>'
-    // append "searchedItem' to '#prevSearches' 
+    if (srchHstry === null) {
+        return;
+    }
+    for (var i = 0; i < srchHstry.length; i++) {
+        $("<p data-artist='"+ srchHstry[i].toLowerCase() + "' class='column searchedItem'>" + srchHstry[i] + "</p>").appendTo("#prevSearches");
+    }
 };
 
 function saveHistory(input) {
@@ -136,5 +139,16 @@ function loadHistory() {
     }
 };
 
+// add event listener to previous searches
+$(document).ready(function() {
+    $(".searchedItem").click(function(event) {
+        event.preventDefault();
+
+        var data = $(this).attr("data-artist");
+        runFetch(data);
+    });
+});
+
 // load items from localstorage upon page load
 loadHistory();
+displayHistory();
