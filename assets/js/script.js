@@ -99,12 +99,14 @@ function displayConcerts(data) {
 };
 
 function displayHistory() {
+    // clears out old search history items
     $('#prevSearches').html('');
 
     if (srchHstry === null) {
         return;
     }
     
+    // adds history list items to the page
     for (var i = 0; i < srchHstry.length; i++) {
         $("<p data-artist='"+ srchHstry[i].toLowerCase() + "' class='column searchedItem'>" + srchHstry[i] + "</p>").appendTo("#prevSearches");
     }
@@ -146,7 +148,7 @@ function loadHistory() {
     };
 };
 
-
+// put this in a function so it can be ran multiple times -- was having an issue where only the first item clicked would actually work
 function updateHistory() {
     // add event listener to previous searches
     $(document).ready(function() {
