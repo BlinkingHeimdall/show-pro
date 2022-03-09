@@ -8,6 +8,8 @@ function runFetch(input) {
                 if(response.ok) {
                     response.json().then(function(data) {
                         displayDescription(data);
+                        // save items to localstorage
+                        saveHistory(input);
                     });
                 };
             })
@@ -70,10 +72,6 @@ $('#searchBtn').on('click', function(event){
     if(!input) {
         runErr();
     }
-    else {
-        // save items to localstorage
-        saveHistory(input);
-    };
 
     runFetch(input);
 });

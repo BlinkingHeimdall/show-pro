@@ -16,6 +16,9 @@
 
 body {
     background-color: var(--primary);
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
 }
 
 h1 {
@@ -66,8 +69,11 @@ input[type=text] {
     font-weight: bold;
 }
 
+#main-page {
+    height: 100%;
+}
+
 #history {
-    width: 80%;
     display: none;
 }
 
