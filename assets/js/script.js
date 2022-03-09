@@ -127,11 +127,12 @@ function loadHistory() {
     let tempHstry = JSON.parse(localStorage.getItem('srchHstry'));
 
     // checks to see if there are actually any values in the temporary array, if there are push each item to the search history array
-    if(tempHstry) {
+    if (tempHstry) {
+        $("#history").show();
         for(i = 0; i < tempHstry.length; i++) {
             srchHstry.push(tempHstry[i]);
         };
-    };
+    }
 };
 
 // load items from localstorage upon page load
