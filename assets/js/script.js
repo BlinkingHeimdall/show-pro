@@ -99,9 +99,12 @@ function displayConcerts(data) {
 };
 
 function displayHistory() {
+    $('#prevSearches').html('');
+
     if (srchHstry === null) {
         return;
     }
+    
     for (var i = 0; i < srchHstry.length; i++) {
         $("<p data-artist='"+ srchHstry[i].toLowerCase() + "' class='column searchedItem'>" + srchHstry[i] + "</p>").appendTo("#prevSearches");
     }
@@ -133,22 +136,30 @@ function loadHistory() {
     // checks to see if there are actually any values in the temporary array, if there are push each item to the search history array
     if (tempHstry) {
         $("#history").show();
+
         for(i = 0; i < tempHstry.length; i++) {
             srchHstry.push(tempHstry[i]);
         };
-    }
+
+        displayHistory();
+        updateHistory();
+    };
 };
 
-// add event listener to previous searches
-$(document).ready(function() {
-    $(".searchedItem").click(function(event) {
-        event.preventDefault();
 
-        var data = $(this).attr("data-artist");
-        runFetch(data);
+function updateHistory() {
+    // add event listener to previous searches
+    $(document).ready(function() {
+        $("p.searchedItem").click(function(event) {
+            event.preventDefault();
+
+            console.log('clicked')
+
+            var data = $(this).attr("data-artist");
+            runFetch(data);
+        });
     });
-});
+};
 
 // load items from localstorage upon page load
 loadHistory();
-displayHistory();
