@@ -99,9 +99,14 @@ function displayConcerts(data) {
 };
 
 function displayHistory() {
+    // clears out old search history items
+    $('#prevSearches').html('');
+
     if (srchHstry === null) {
         return;
     }
+    
+    // adds history list items to the page
     for (var i = 0; i < srchHstry.length; i++) {
         $("<p data-artist='"+ srchHstry[i].toLowerCase() + "' class='column searchedItem'>" + srchHstry[i] + "</p>").appendTo("#prevSearches");
     }
@@ -133,22 +138,30 @@ function loadHistory() {
     // checks to see if there are actually any values in the temporary array, if there are push each item to the search history array
     if (tempHstry) {
         $("#history").show();
+
         for(i = 0; i < tempHstry.length; i++) {
             srchHstry.push(tempHstry[i]);
         };
-    }
+
+        displayHistory();
+        updateHistory();
+    };
 };
 
-// add event listener to previous searches
-$(document).ready(function() {
-    $(".searchedItem").click(function(event) {
-        event.preventDefault();
+// put this in a function so it can be ran multiple times -- was having an issue where only the first item clicked would actually work
+function updateHistory() {
+    // add event listener to previous searches
+    $(document).ready(function() {
+        $("p.searchedItem").click(function(event) {
+            event.preventDefault();
 
-        var data = $(this).attr("data-artist");
-        runFetch(data);
+            console.log('clicked')
+
+            var data = $(this).attr("data-artist");
+            runFetch(data);
+        });
     });
-});
+};
 
 // load items from localstorage upon page load
 loadHistory();
-displayHistory();
