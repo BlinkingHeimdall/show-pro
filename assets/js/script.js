@@ -99,6 +99,8 @@ function displayConcerts(data) {
 
 function displayHistory() {
     // make a list of the search history from localstorage
+    // append '<p data-artist="dragonforce" class="column searchedItem">Dragonforce</p>'
+    // append "searchedItem' to '#prevSearches' 
 };
 
 function saveHistory(input) {
