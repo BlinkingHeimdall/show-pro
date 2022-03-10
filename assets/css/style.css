@@ -19,6 +19,9 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
 }
 
 h1 {
@@ -73,6 +76,7 @@ input[type=text] {
 
 #main-page {
     height: 100%;
+    margin: 0 auto;
 }
 
 #history {
