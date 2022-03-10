@@ -8,6 +8,7 @@ function runFetch(input) {
                 if(response.ok) {
                     response.json().then(function(data) {
                         if(data.artists) {
+                            // display the description
                             displayDescription(data);
 
                             let client_id = 'MjU5NDM1OTZ8MTY0NjM1NzQyOC4yMDc5NzQ';
@@ -17,7 +18,7 @@ function runFetch(input) {
                                 .then(function(response) {
                                     if(response.ok) {
                                         response.json().then(function(data) {
-                                            console.log(data)
+                                            // display the concert list
                                             displayConcerts(data);
                                         });
                                     };
@@ -63,8 +64,8 @@ var runErr = function() {
         setTimeout(function() {
             $(".error-handle").remove();
         }, 2000);
-    }
-}
+    };
+};
 
 // event listener for the search button
 $('#searchBtn').on('click', function(event){
