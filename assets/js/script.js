@@ -7,9 +7,32 @@ function runFetch(input) {
             .then(function(response) {
                 if(response.ok) {
                     response.json().then(function(data) {
-                        displayDescription(data);
-                        // save items to localstorage
-                        saveHistory(input);
+                        if(data.artists) {
+                            displayDescription(data);
+
+                            let client_id = 'MjU5NDM1OTZ8MTY0NjM1NzQyOC4yMDc5NzQ';
+                            let client_secret = '826dd467ea242fba5e339e7c657253c307f579e53f23611ce7311531fbd81b77';
+
+                            fetch(`https://api.seatgeek.com/2/events/?client_id=${client_id}&client_secret=${client_secret}&performers.slug=${data.artists[0].strArtist.toLowerCase().replace(/ /g, '-')}&per_page=5`)
+                                .then(function(response) {
+                                    if(response.ok) {
+                                        response.json().then(function(data) {
+                                            console.log(data)
+                                            displayConcerts(data);
+                                        });
+                                    };
+                                })
+                                .catch(function(error) {
+                                    runErr();
+                                    console.log('not an artist' + error);
+                                }
+                            );
+                            // save items to localstorage
+                            saveHistory(input);
+                        }
+                        else {
+                            runErr();
+                        };
                     });
                 };
             })
@@ -18,24 +41,7 @@ function runFetch(input) {
                 console.log('not and artist' + error)
             }
         );
-
-        let client_id = 'MjU5NDM1OTZ8MTY0NjM1NzQyOC4yMDc5NzQ';
-        let client_secret = '826dd467ea242fba5e339e7c657253c307f579e53f23611ce7311531fbd81b77';
-
-        fetch(`https://api.seatgeek.com/2/events/?client_id=${client_id}&client_secret=${client_secret}&performers.slug=${input.replace(/ /g, '-')}&per_page=5`)
-            .then(function(response) {
-                if(response.ok) {
-                    response.json().then(function(data) {
-                        displayConcerts(data);
-                    });
-                };
-            })
-            .catch(function(error) {
-                runErr();
-                console.log('not an artist' + error);
-            }
-        );
-}
+};
 
 // run when there's an error in the input
 var runErr = function() {
@@ -149,11 +155,13 @@ function loadHistory() {
             srchHstry.push(tempHstry[i]);
         };
         displayHistory();
+
+        // update the history list
         updateHistory();
     };
 };
 
-// put this in a function so it can be ran multiple times -- was having an issue where only the first item clicked would actually work
+// put this in a function so it can be ran multiple times
 function updateHistory() {
     // add event listener to previous searches
     $(document).ready(function() {
