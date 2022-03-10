@@ -92,7 +92,7 @@ function displayConcerts(data) {
     if(data.events.length) {
         // adds a concert button for each concert in the list
         for(i = 0; i < data.events.length; i++) {
-            let htmlText = `<li class="card column is-centered"><a target="_blank" href="${data.events[i].url}>">
+            let htmlText = `<li class="card column is-full"><a target="_blank" href="${data.events[i].url}>">
             ${data.events[i].datetime_utc.slice(0, 10)},
             ${data.events[i].venue.display_location}</a></li>`
             $('#concerts').append(htmlText);
