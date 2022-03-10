@@ -78,7 +78,7 @@ $('#searchBtn').on('click', function(event){
 function displayDescription(data) {
     // sets the html for the description to have an image and the bio from theaudiodb
     $('#description').html(
-        `<img src='${data.artists[0].strArtistThumb}' alt='${data.artists[0].strArtist}' width="200" height="200">
+        `<img src='${data.artists[0].strArtistThumb}' alt='${data.artists[0].strArtist}' width="200" height="200" class="column is-centered">
         <h2 class="subtitle is-2">${data.artists[0].strArtist}</h2>
         <p>${data.artists[0].strBiographyEN}</p>`
     );
@@ -92,7 +92,7 @@ function displayConcerts(data) {
     if(data.events.length) {
         // adds a concert button for each concert in the list
         for(i = 0; i < data.events.length; i++) {
-            let htmlText = `<li class="card"><a target="_blank" href="${data.events[i].url}>">
+            let htmlText = `<li class="card column is-centered"><a target="_blank" href="${data.events[i].url}>">
             ${data.events[i].datetime_utc.slice(0, 10)},
             ${data.events[i].venue.display_location}</a></li>`
             $('#concerts').append(htmlText);
@@ -100,7 +100,7 @@ function displayConcerts(data) {
     }
     else {
         // styling probably needs to be done for this --
-        $('#concerts').html(`<li>No Concerts</li>`);
+        $('#concerts').html(`<li class="column is-centered">No Concerts</li>`);
     };
 };
 

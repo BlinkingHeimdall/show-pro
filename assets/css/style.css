@@ -16,9 +16,6 @@
 
 body {
     background-color: var(--primary);
-    position: absolute;
-    height: 100%;
-    /* overflow: hidden; -- this needs to be adjusted (page won't scroll even with artist description)*/
 }
 
 h1 {
@@ -74,8 +71,11 @@ input[type=text] {
 }
 
 #history {
+    margin-top: 40px;
     display: none;
 }
+
+
 
 #prevSearches {
     max-height: 200px;
@@ -110,7 +110,7 @@ input[type=text] {
 main .card {
     margin-top: 3px;
     margin-left: 80px;
-    
+    background-color: var(--secondary);
 }
 
 .submit {
@@ -119,8 +119,15 @@ main .card {
 }
 
 .shows {
-    margin-left: 120px;
-    margin: 0 auto;
+    margin-top: 60px;
+
+}
+
+
+#results {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 main .is-two-quarters img {
@@ -132,4 +139,25 @@ main .is-two-quarters img {
 
 main .is-two-quarters .subtitle {
     text-align: center;
+}
+
+
+
+/* MEDIA QUERY FOR Larger DESKTOP SCREENS */
+@media (min-width: 980px) and (max-width : 1200px){
+
+}
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+
+}
+
+  /* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+
+}
+
+  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+
 }
