@@ -14,14 +14,16 @@
     margin: 0;
 }
 
+body,
+html {
+    margin: 0;
+    height: 100%;
+}
+
 body {
     background-color: var(--primary);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
+    overflow-x: hidden;
+
 }
 
 h1 {
@@ -75,8 +77,9 @@ input[type=text] {
 
 
 #main-page {
-    height: 100%;
     margin: 0 auto;
+    height: fit-content;
+    background-color: var(--primary);
 }
 
 #history {
