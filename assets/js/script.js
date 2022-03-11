@@ -176,3 +176,7 @@ function updateHistory() {
 
 // load items from localstorage upon page load
 loadHistory();
+
+$(document).ready(function() {
+    $("#direction > p").css("height", "500px");
+});
